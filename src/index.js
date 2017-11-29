@@ -1,6 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
+import { createStore, combineReducers } from 'redux';
+import { todos } from './reducers/todos';
+import { visibilityFilter } from './reducers/visibilityFilter';
+import App from './App.jsx';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+import './index.css';
+
+const todoApp = combineReducers({
+  todos,
+  visibilityFilter
+});
+const store = createStore(todoApp);
+
+const render = () => {
+  ReactDOM.render(
+    <App todos={store.getState().todos} />,
+    document.getElementById('root'));
+}
+store.subscribe(render);
+render();
