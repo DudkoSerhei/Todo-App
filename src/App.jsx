@@ -3,14 +3,32 @@ import { createStore, combineReducers } from 'redux';
 import { connect } from 'react-redux';
 import { todos } from './reducers/todos';
 import { visibilityFilter } from './reducers/visibilityFilter';
-import './App.css';
+import AddTodo from './components/AddTodo';
+import { Footer } from './components/Footer';
+import { TodoList } from './components/TodoList';
 
 const todoApp = combineReducers({
   todos,
   visibilityFilter
 });
-const store = createStore(todoApp);
-let nextTodoId = 0;
+
+const getVisibleTodos = (
+  todos,
+  filter
+) => {
+  switch (filter) {
+    case 'SHOW_ALL':
+      return todos;
+    case 'SHOW_COMPLETED':
+      return todos.filter(
+        t => t.completed
+      );
+    case 'SHOW_ACTIVE':
+      return todos.filter(
+        t => !t.completed
+      );
+  }
+}
 
 const mapStateToProps = (state) => {
   return {
@@ -35,35 +53,12 @@ const mapDispatchToProps = (dispatch) => {
 const VisibleTodoList = connect(
   mapStateToProps,
   mapDispatchToProps
-)(TodoApp);
+)(TodoList);
 
-class App extends Component {
-  render() {
-    return (
-      <header className="App-header">
-        <input className="App-input" placeholder="Write todo" ref={node => {
-          this.input = node;
-        }} />
-      <button className="App-btn" onClick={() => {
-          store.dispatch({
-            type: 'ADD_TODO',
-            text: this.input.value,
-            id: nextTodoId++
-          });
-          this.input.value = '';
-        }}>
-          Add TodoList
-        </button>
-        <ul className="App-list">
-          {this.props.todos.map(todo =>
-            <li key={todo.id}>
-              {todo.text}
-            </li>
-          )}
-        </ul>
-      </header>
-    );
-  }
-}
-
-export default App;
+export const App = () => (
+  <div className="Content">
+    <AddTodo />
+    <VisibleTodoList />
+    <Footer />
+  </div>
+);

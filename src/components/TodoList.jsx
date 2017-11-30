@@ -1,11 +1,12 @@
 import React from 'react';
-import Todo from './Todo';
+import { Todo } from './Todo';
+import './styles/App.css';
 
 export const TodoList = ({
   todos,
   onTodoClick
 }) => (
-  <ul>
+  <ul className="App-list">
     {todos.map(todo =>
       <Todo
         key={todo.id}

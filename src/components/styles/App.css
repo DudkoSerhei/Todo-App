@@ -1,0 +1,94 @@
+.App-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 33.3%;
+  width: 33%;
+  color: white;
+  margin: 100px 0;
+}
+.App-input {
+  width: 300px;
+  padding: 10px 20px;
+  font-size: 2em;
+  color: black;
+  background-color: #fff;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  outline: 0;
+  transition: all .3s;
+  background-color: #254C78;
+  color: #fff;
+  transition: all 0.3s;
+}
+.App-input::-webkit-input-placeholder {
+  color:#fff;
+}
+.App-input:hover {
+  border-color: #fff;
+}
+
+.App-btn {
+  padding: 10px 15px;
+  font-size: 2em;
+  background-color: #fff;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  outline: 0;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all .3s;
+  background-color: #254C78;
+  color: #fff;
+  transition: all 0.3s;
+}
+.App-btn:hover {
+  border-color: #fff;
+}
+.App-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: wrap;
+  height: 600px;
+  width: 33%;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  color: #fff;
+  background-color: #254C78;
+  padding: 10px;
+  transition: all 0.3s;
+}
+.App-list:hover {
+  border-color: #fff;
+}
+.App-item {
+  cursor: pointer;
+  list-style-type: decimal;
+  font-size: 1.375em;
+  text-transform: capitalize;
+}
+.App-footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 33.3%;
+  width: 33%;
+  color: #fff;
+  margin: 150px 0;
+  background-color: #254C78;
+  font-size: 1.250em;
+  border-radius: 10px;
+}
+.App-title {
+  text-transform: uppercase;
+  margin-right: 20px;
+  font-size: 1.625em;
+}
+.App-link {
+  margin-left: 5px;
+  color: #4C77A6;
+}
+.App-text {
+  margin-left: 5px;
+}

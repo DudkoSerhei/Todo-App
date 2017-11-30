@@ -1,4 +1,5 @@
 import React from 'react';
+import './styles/App.css';
 
 export const Link = ({
   active,
@@ -6,11 +7,11 @@ export const Link = ({
   onClick
 }) => {
   if (active) {
-    return <span>{children}</span>;
+    return <span className="App-text">{children}</span>;
   }
 
   return (
-    <a href='#'
+    <a className="App-link" href='#'
        onClick={e => {
          e.preventDefault();
          onClick();

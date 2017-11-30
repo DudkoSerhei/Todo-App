@@ -1,16 +1,17 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import './styles/App.css';
 
 let nextTodoId = 0;
 let AddTodo = ({ dispatch }) => {
   let input;
 
   return (
-    <div>
-      <input ref={node => {
+    <div className="App-header">
+      <input className="App-input" placeholder="Write todo" ref={node => {
         input = node;
       }} />
-      <button onClick={() => {
+      <button className="App-btn" onClick={() => {
         dispatch({
           type: 'ADD_TODO',
           id: nextTodoId++,

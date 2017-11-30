@@ -1,18 +1,23 @@
 import React from 'react';
+import './styles/App.css';
 
 export const Todo = ({
   onClick,
   completed,
   text
 }) => (
-  <li
+  <li className="App-item"
     onClick={onClick}
     style={{
       textDecoration:
         completed ?
           'line-through' :
-          'none'
-    }}
+          'none',
+        color: completed ?
+          'black' :
+          'inherit'
+    }
+  }
   >
     {text}
   </li>
