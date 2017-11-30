@@ -11,7 +11,7 @@ export const Link = ({
   }
 
   return (
-    <a className="App-link" href='#'
+    <a className="App-link"
        onClick={e => {
          e.preventDefault();
          onClick();

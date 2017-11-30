@@ -1,11 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore, combineReducers } from 'redux';
 import { todos } from './reducers/todos';
 import { visibilityFilter } from './reducers/visibilityFilter';
-import PropTypes from 'prop-types';
-import { App } from './App.jsx';
+import App from './components/App.jsx';
 
 import './index.css';
 

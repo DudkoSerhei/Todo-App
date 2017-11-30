@@ -14,7 +14,7 @@ export const Todo = ({
           'line-through' :
           'none',
         color: completed ?
-          'black' :
+          '#4C77A6' :
           'inherit'
     }
   }

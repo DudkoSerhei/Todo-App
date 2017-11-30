@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { addTodo } from '../actions/addTodo';
 import './styles/App.css';
 
-let nextTodoId = 0;
 let AddTodo = ({ dispatch }) => {
   let input;
 
@@ -11,16 +11,10 @@ let AddTodo = ({ dispatch }) => {
       <input className="App-input" placeholder="Write todo" ref={node => {
         input = node;
       }} />
-      <button className="App-btn" onClick={() => {
-        dispatch({
-          type: 'ADD_TODO',
-          id: nextTodoId++,
-          text: input.value
-        })
-        input.value = '';
-      }}>
-        Add Todo
-      </button>
+    <input type="submit" value="Add Todo" className="App-btn" onClick={() => {
+      dispatch(addTodo(input.value));
+      input.value = '';
+      }} />
     </div>
   );
 };
