@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { createStore, combineReducers } from 'redux';
+import { connect } from 'react-redux';
 import { todos } from './reducers/todos';
 import { visibilityFilter } from './reducers/visibilityFilter';
 import './App.css';
@@ -10,6 +11,31 @@ const todoApp = combineReducers({
 });
 const store = createStore(todoApp);
 let nextTodoId = 0;
+
+const mapStateToProps = (state) => {
+  return {
+    todos: getVisibleTodos(
+      state.todos,
+      state.visibilityFilter
+    )
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onTodoClick: (id) => {
+      dispatch({
+        type: 'TOGGLE_TODO',
+        id
+      });
+    }
+  };
+};
+
+const VisibleTodoList = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(TodoApp);
 
 class App extends Component {
   render() {
